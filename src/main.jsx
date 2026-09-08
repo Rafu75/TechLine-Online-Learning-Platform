@@ -7,7 +7,7 @@ import Home from './components/Home'
 import { AuthContext } from './components/context/AuthContext'
 import Signup from './components/features/Signup'
 import Login from './components/features/Login'
-import ForgotPass from './components/features/Forgetpass'
+import ForgotPass from './components/features/ForgetPass'
 import AuthProvider from './components/context/AuthProvider'
 import CourseDetails from './components/pages/CourseDetails'
 import AllCourse from './components/AllCourse'
@@ -48,10 +48,9 @@ const router = createBrowserRouter([
       },
       {
         path:'/courseDetails/:id',
-        loader: ({params}) => fetch(`https://dev-stride-server.vercel.app/courses/${params.id}`),
         element: (
             <PrivateRout>
-                <CourseDetails /> 
+              <CourseDetails /> 
             </PrivateRout>
         )
       },

@@ -45,7 +45,7 @@ const Navbar = () => {
                 <NavLink
                     to="/"
                     onClick={closeDashboard}
-                    className={({ isActive }) => (isActive ? "text-blue-600 font-semibold" : "")}
+                    className={({ isActive }) => (isActive ? "text-blue-600 font-bold" : "")}
                 >
                     Home
                 </NavLink>
@@ -54,7 +54,7 @@ const Navbar = () => {
                 <NavLink
                     to="/allCourses"
                     onClick={closeDashboard}
-                    className={({ isActive }) => (isActive ? "text-blue-600 font-semibold" : "")}
+                    className={({ isActive }) => (isActive ? "text-blue-600 font-bold" : "")}
                 >
                     All Courses
                 </NavLink>
@@ -69,7 +69,7 @@ const Navbar = () => {
                             <NavLink
                                 to="/addCourse"
                                 onClick={closeDashboard}
-                                className={({ isActive }) => (isActive ? "text-blue-600 font-semibold" : "")}
+                                className={({ isActive }) => (isActive ? "text-blue-600 font-bold" : "")}
                             >
                                 Add Course
                             </NavLink>
@@ -78,7 +78,7 @@ const Navbar = () => {
                             <NavLink
                                 to="/myCourse"
                                 onClick={closeDashboard}
-                                className={({ isActive }) => (isActive ? "text-blue-600 font-semibold" : "")}
+                                className={({ isActive }) => (isActive ? "text-blue-600 font-bold" : "")}
                             >
                                 My Course
                             </NavLink>
@@ -87,7 +87,7 @@ const Navbar = () => {
                             <NavLink
                                 to="/myEnrolledCourse"
                                 onClick={closeDashboard}
-                                className={({ isActive }) => (isActive ? "text-blue-600 font-semibold" : "")}
+                                className={({ isActive }) => (isActive ? "text-blue-600 font-bold" : "")}
                             >
                                 Enrolled Course
                             </NavLink>
@@ -113,9 +113,9 @@ const Navbar = () => {
                         {links}
                     </ul>
                 </div>
-                <Link to={'/'} className="btn btn-ghost text-xl font-semibold gap-0">
-  <span>Tech</span><span className="text-blue-500">Line</span>
-</Link>
+                <Link to={'/'} className="btn btn-ghost text-xl font-bold gap-0">
+                    <span>Tech</span><span className="text-blue-600">Line</span>
+                </Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -138,42 +138,42 @@ const Navbar = () => {
                     {/* moon icon */}
                     <svg
                         className="swap-off fill-current w-6 h-6"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                    >
-                        <path d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73,8.15,8.15,0,0,1-8.14-8.14,8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8.11,2.36,10.14,10.14,0,1,0,22,14.86,1,1,0,0,0,21.64,13Z" />
-                    </svg>
-                </label>
-
-                {
-                    user ? (
-                        <>
-                            {/* profile tooltip */}
-                            <div className="tooltip tooltip-bottom" data-tip={user.displayName || 'No Name'}>
-                                <Link to={'/'} >
-                                    {user.photoURL ? (
-                                        <img
-                                            src={user.photoURL || photoURL}
-                                            alt="User"
-                                            className="w-10 h-10 rounded-full border-2 border-gray-400 hover:scale-105 transition"
-                                        />
-                                    ) : (
-                                        <CgProfile className="w-8 h-8" />
-                                    )}
-                                </Link>
-                            </div>
-
-                            <button onClick={handleSignOut} className="btn">
-                                <Link to={'/login'}>Sign Out</Link>
-                            </button>
-                        </>
-                    )
-                        : <><Link to={'/login'} className="btn">Login</Link>
-                            <Link to={'/signup'} className="btn">Sign Up</Link> </>
-                }
-            </div>
-        </div>
-    );
-};
-
+                        xmlns="http://www.w3.org/2000/svg" 
+                        viewBox="0 0 24 24" 
+                    > 
+                        <path d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73,8.15,8.15,0,0,1-8.14-8.14,8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8.11,2.36,10.14,10.14,0,1,0,22,14.86,1,1,0,0,0,21.64,13Z" /> 
+                    </svg> 
+                </label> 
+ 
+                { 
+                    user ? ( 
+                        <> 
+                            {/* profile tooltip */} 
+                            <div className="tooltip tooltip-bottom" data-tip={user.displayName || 'No Name'}> 
+                                <Link to={'/'} > 
+                                    {user.photoURL ? ( 
+                                        <img 
+                                            src={user.photoURL || photoURL} 
+                                            alt="User" 
+                                            className="w-10 h-10 rounded-full border-2 border-gray-500 hover:scale-105 transition" 
+                                        /> 
+                                    ) : ( 
+                                        <CgProfile className="w-8 h-8" /> 
+                                    )} 
+                                </Link> 
+                            </div> 
+ 
+                            <button onClick={handleSignOut} className="btn"> 
+                                <Link to={'/login'}>Sign Out</Link> 
+                            </button> 
+                        </> 
+                    ) 
+                        : <><Link to={'/login'} className="btn">Login</Link> 
+                            <Link to={'/signup'} className="btn">Sign Up</Link> </> 
+                } 
+            </div> 
+        </div> 
+    ); 
+}; 
+ 
 export default Navbar;

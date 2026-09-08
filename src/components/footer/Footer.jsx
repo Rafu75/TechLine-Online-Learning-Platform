@@ -16,7 +16,7 @@ const Footer = () => {
     const currentYear = new Date().getFullYear();
 
     return (
-        <footer className="bg-white border-t border-gray-200 py-6">
+        <footer className="footer-section shadow-[0_-2px_6px_rgba(0,0,0,0.08)] py-6">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 
                
@@ -26,14 +26,16 @@ const Footer = () => {
                     <div className="text-center md:text-left">
                         
                         <div className="flex items-center justify-center md:justify-start">
-                            <span className="text-xl font-bold text-blue-600">TechLine</span>
+                            <span className="text-xl font-bold">
+                                Tech<span className="text-blue-600">Line</span>
+                            </span>
                         </div>
                         <p className="text-gray-500 text-sm mt-1">Empowering Minds Together.</p>
                     </div>
 
                    
                     <p className="text-gray-500 text-sm">
-                        © {currentYear} TechLine. All rights reserved.
+                        ©TechLine.
                     </p>
 
                    

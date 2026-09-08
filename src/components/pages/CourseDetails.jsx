@@ -1,15 +1,26 @@
-import React, { useContext, useState } from "react";
-import { useLoaderData } from "react-router";
+import React, { useState } from "react";
+import { useLocation } from "react-router";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { motion } from "framer-motion";
-import { AuthContext } from "../context/AuthContext";
 import useAuth from "../hooks/useAuth";
 
 const CourseDetails = () => {
-  const course = useLoaderData();
-  const { user } = useAuth(); 
+  const location = useLocation();
+  const course = location.state?.course;
+
+  const { user } = useAuth();
   const [enrolling, setEnrolling] = useState(false);
+
+  if (!course) {
+    return (
+      <div className="text-center py-20">
+        <h2 className="text-2xl font-semibold text-gray-700">
+          Course details not found.
+        </h2>
+      </div>
+    );
+  }
 
   const handleEnroll = async () => {
     if (!user) {
@@ -20,7 +31,7 @@ const CourseDetails = () => {
     const enrollmentData = {
       courseId: course._id,
       title: course.title,
-      imageURL: course.imageURL,
+      imageURL: course.image,
       instructor: course.instructor || "Unknown Instructor",
       userEmail: user.email,
       userName: user.displayName,
@@ -29,9 +40,14 @@ const CourseDetails = () => {
 
     try {
       setEnrolling(true);
-      const res = await axios.post("https://dev-stride-server.vercel.app/enrollments", enrollmentData);
+
+      const res = await axios.post(
+        "http://localhost:5000/enrollments",
+        enrollmentData
+      );
+
       if (res.data.insertedId) {
-        toast("Successfully enrolled! 🎉");
+        toast.success("Successfully enrolled! 🎉");
       } else {
         toast("You're already enrolled in this course!");
       }
@@ -48,31 +64,38 @@ const CourseDetails = () => {
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4 }}
-        className="bg-white shadow-md rounded-2xl overflow-hidden"
+        transition={{ duration: 0.5 }}
+        whileHover={{ scale: 1.02 }}
+        className="bg-white shadow-md hover:shadow-xl rounded-2xl overflow-hidden transition-shadow duration-300"
       >
+        {/* Course Image */}
         <img
-          src={course.imageURL || course.image}
+          src={course.image}
           alt={course.title}
           className="w-full h-80 object-cover"
         />
 
-        <div className="p-6 space-y-3">
-          <h1 className="text-3xl font-bold text-gray-800">{course.title}</h1>
-          <p className="text-gray-600 leading-relaxed">{course.description}</p>
+        {/* Course Information */}
+        <div className="p-6">
+          <h1 className="text-3xl font-bold text-gray-800">
+            {course.title}
+          </h1>
 
-          <div className="flex flex-wrap justify-between mt-6 text-gray-700">
-            <p>
-              <strong>Price:</strong> ${course.price}
+          <p className="text-gray-600 leading-relaxed mt-4">
+            {course.description}
+          </p>
+
+          <div className="flex flex-wrap justify-between items-center gap-4 mt-6">
+            <p className="text-blue-600 text-lg font-semibold">
+              ৳{course.price}
             </p>
-            <p>
-              <strong>Duration:</strong> {course.duration} hours
-            </p>
-            <p>
-              <strong>Category:</strong> {course.category}
+
+            <p className="text-gray-600 font-medium">
+              Category: {course.category}
             </p>
           </div>
 
+          {/* Enroll Button */}
           <div className="flex justify-center mt-8">
             <button
               onClick={handleEnroll}

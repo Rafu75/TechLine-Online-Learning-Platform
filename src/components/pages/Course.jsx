@@ -1,19 +1,14 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router';
-import { motion } from 'framer-motion';
 
 const Course = ({ course }) => {
   const { _id, title, image, instructor, price } = course;
 
   return (
 
-    <motion.div
-      key={_id}
-      initial={{ opacity: 0, y: 40 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4 }}
-      className="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition"
-    >
+    <div className="course-card rounded-2xl shadow-md overflow-hidden 
+      hover:shadow-xl transition-shadow duration-300">
+      
       <img
         src={image || 'https://via.placeholder.com/400x250?text=No+Image'}
         alt={title}
@@ -26,13 +21,14 @@ const Course = ({ course }) => {
           <span className="text-blue-600 font-medium">${price}</span>
           <Link
             to={`/courseDetails/${_id}`}
+            state={{ course }}
             className="text-sm bg-blue-600 text-white px-3 py-1.5 rounded-md hover:bg-blue-700 transition"
           >
             View Details
           </Link>
         </div>
       </div>
-    </motion.div>
+    </div>
     
   );
 };

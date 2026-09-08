@@ -78,7 +78,7 @@ const ChooseUs = () => {
 
     return (
         <motion.section
-            className="py-16 bg-white"
+            className="py-16"
             variants={sectionVariants}
             initial="hidden"
             whileInView="visible" 
@@ -87,7 +87,7 @@ const ChooseUs = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 
                 <motion.h2
-                    className="text-3xl font-bold text-gray-900 mb-12"
+                    className="text-3xl font-bold mb-12"
                     initial={{ opacity: 0, y: -20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.8 }}
@@ -101,12 +101,20 @@ const ChooseUs = () => {
                     {features.map((feature, index) => (
                         <motion.div
                             key={index}
-                            className="flex flex-col items-center p-6 bg-gray-50 rounded-lg shadow-sm"
+                            className="feature-card flex flex-col items-center p-6 rounded-lg shadow-xl hover:shadow-xl transition-all duration-300"
                             variants={cardVariants}
+                            whileHover={{ scale: 1.03 }} 
+                            whileTap={{ scale: 0.98 }} 
                         >
-                            <div className="mb-4">{feature.icon}</div>
-                            <h3 className="text-xl font-semibold text-gray-900 mb-2">{feature.title}</h3>
-                            <p className="text-gray-600">{feature.description}</p>
+                            <div className="mb-4">
+                                {feature.icon}
+                            </div>
+                            <h3 className="text-xl font-semibold mb-2">
+                                {feature.title}
+                            </h3>
+                            <p className="text-gray-600">
+                                {feature.description}
+                            </p>
                         </motion.div>
                     ))}
                 </div>

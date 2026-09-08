@@ -1,2 +1,129 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+.hero-section {
+  background-color: #3b82f6;
+}
+
+html[data-theme="dark"] .hero-section {
+  background-color: #172554;
+}
+
+.course-card {
+  background-color: white;
+  color: #1f2937;
+}
+
+html[data-theme="dark"] .course-card {
+  background-color: #172554;
+  color: white;
+}
+
+html[data-theme="dark"] .course-card h1,
+html[data-theme="dark"] .course-card h2,
+html[data-theme="dark"] .course-card h3,
+html[data-theme="dark"] .course-card h4,
+html[data-theme="dark"] .course-card p,
+html[data-theme="dark"] .course-card span {
+  color: white;
+}
+
+.feature-card {
+  background-color: white;
+  color: #1f2937;
+}
+
+html[data-theme="dark"] .feature-card {
+  background-color: #172554;
+  color: white;
+}
+
+html[data-theme="dark"] .feature-card h1,
+html[data-theme="dark"] .feature-card h2,
+html[data-theme="dark"] .feature-card h3,
+html[data-theme="dark"] .feature-card h4,
+html[data-theme="dark"] .feature-card p,
+html[data-theme="dark"] .feature-card span {
+  color: white;
+}
+
+.instructor-card {
+  background-color: white;
+  color: #1f2937;
+}
+
+html[data-theme="dark"] .instructor-card {
+  background-color: #172554;
+  color: white;
+}
+
+html[data-theme="dark"] .instructor-card h1,
+html[data-theme="dark"] .instructor-card h2,
+html[data-theme="dark"] .instructor-card h3,
+html[data-theme="dark"] .instructor-card h4,
+html[data-theme="dark"] .instructor-card p,
+html[data-theme="dark"] .instructor-card span {
+  color: white;
+}
+
+.footer-section {
+  background-color: white;
+  color: #1f2937;
+  border-top-color: #e5e7eb;
+}
+
+html[data-theme="dark"] .footer-section {
+  background-color: #172554;
+  color: white;
+  border-top-color: #172554;
+}
+
+html[data-theme="dark"] .footer-section h1,
+html[data-theme="dark"] .footer-section h2,
+html[data-theme="dark"] .footer-section h3,
+html[data-theme="dark"] .footer-section h4,
+html[data-theme="dark"] .footer-section p,
+html[data-theme="dark"] .footer-section span {
+  color: white;
+}
+html[data-theme="dark"] .footer-section .text-blue-500 {
+  color: #3b82f6 !important;
+}
+
+.explore-btn {
+  background-color: white;
+  color: #3b82f6;
+  border: 2px solid white;
+  transition: all 0.3s ease;
+}
+
+.explore-btn:hover {
+  background-color: #3b82f6;
+  color: white;
+  border-color: white;
+}
+
+html[data-theme="dark"] .explore-btn {
+  background-color: #3b82f6;
+  color: white;
+  border-color: #3b82f6;
+}
+
+html[data-theme="dark"] .explore-btn:hover {
+  background-color: #172554;
+  color: white;
+  border-color: white;
+}
+
+.instructor-btn:hover {
+  background-color: white;
+  color: #3b82f6;
+  border-color: white;
+}
+
+html[data-theme="dark"] .instructor-btn:hover {
+  background-color: #3b82f6;
+  color: white;
+  border-color: #3b82f6;
+}
+

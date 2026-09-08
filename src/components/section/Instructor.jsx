@@ -1,32 +1,33 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
+
 const Instructor = () => {
     
     const instructors = [
         {
-            name: "John Smith",
+            name: "Shakib Al Hasan",
             title: "Web Development Lead",
-            image: "https://i.ibb.co.com/ccz3Rrz9/person.webp", 
-            bio: "John is a seasoned developer with 10+ years of experience in full-stack web development. He's passionate about teaching React and Node.js."
+            image: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Shakib_Al_Hasan_(4)_(cropped).jpg",
+            bio: "Shakib is a seasoned developer with 10+ years of experience in full-stack web development. He's passionate about teaching React and Node.js."
         },
         {
-            name: "Jane Doe",
+            name: "Liton Das",
             title: "Data Science Expert",
-            image: "https://i.ibb.co.com/ccz3Rrz9/person.webp", 
-            bio: "Jane specializes in machine learning and data analysis. Her courses focus on practical applications of Python and R."
+            image: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Liton_Das_(3)_(cropped).jpg",
+            bio: "Liton specializes in machine learning and data analysis. His courses focus on practical applications of Python and R."
         },
         {
-            name: "Michael Brown",
+            name: "Nazmul Hossain Shanto",
             title: "UI/UX Designer",
-            image: "https://i.ibb.co.com/ccz3Rrz9/person.webp", 
-            bio: "Michael brings creativity and user-centric design principles to life. He teaches Figma, Adobe XD, and design thinking."
+            image: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Najmul_Hossain_Shanto.jpg",
+            bio: "Shanto brings creativity and user-centric design principles to life. He teaches Figma, Adobe XD, and design thinking."
         },
         {
-            name: "Sarah Lee",
+            name: "Mustafizur Rahman",
             title: "Digital Marketing Strategist",
-            image: "https://i.ibb.co.com/ccz3Rrz9/person.webp", 
-            bio: "Sarah helps businesses grow their online presence with effective digital marketing strategies across various platforms."
+            image: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Mustafizur_Rahman_(4).jpg",
+            bio: "Mustafizur helps businesses grow their online presence with effective digital marketing strategies across various platforms."
         }
     ];
 
@@ -70,7 +71,7 @@ const Instructor = () => {
 
                 {/* section Title */}
                 <motion.h2
-                    className="text-3xl font-extrabold  mb-12"
+                    className="text-3xl font-bold mb-12"
                     initial={{ opacity: 0, y: -20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.8 }}
@@ -84,7 +85,7 @@ const Instructor = () => {
                     {instructors.map((instructor, index) => (
                         <motion.div
                             key={index}
-                            className="flex flex-col items-center bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300"
+                            className="instructor-card flex flex-col items-center p-6 rounded-lg shadow-xl hover:shadow-xl transition-all duration-300"
                             variants={cardVariants}
                             whileHover={{ scale: 1.03 }} 
                             whileTap={{ scale: 0.98 }}   
@@ -92,11 +93,17 @@ const Instructor = () => {
                             <img
                                 src={instructor.image}
                                 alt={instructor.name}
-                                className="w-32 h-32 rounded-full object-cover mb-4 ring-4 ring-blue-200"
+                                className="w-32 h-32 rounded-full object-cover mb-4 ring-4 ring-blue-500"
                             />
-                            <h3 className="text-xl font-semibold text-gray-900 mb-1">{instructor.name}</h3>
-                            <p className="text-blue-600 font-medium mb-3">{instructor.title}</p>
-                            <p className="text-gray-600 text-sm">{instructor.bio}</p>
+                            <h3 className="text-xl font-semibold mb-1">
+                                {instructor.name}
+                            </h3>
+                            <p className="text-blue-600 font-medium mb-2">
+                                {instructor.title}
+                            </p>
+                            <p className="text-gray-600">
+                                {instructor.bio}
+                            </p>
                         </motion.div>
                     ))}
                 </div>
