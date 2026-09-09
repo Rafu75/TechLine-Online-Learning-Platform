@@ -6,7 +6,13 @@ const { MongoClient, ObjectId } = require("mongodb");
 
 const app = express();
 
-app.use(cors());
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    credentials: true,
+  })
+);
+
 app.use(express.json());
 
 const PORT = process.env.PORT || 5000;
