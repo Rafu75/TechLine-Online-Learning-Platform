@@ -42,7 +42,7 @@ const CourseDetails = () => {
       setEnrolling(true);
 
       const res = await axios.post(
-        "http://localhost:5000/enrollments",
+        `${import.meta.env.VITE_API_URL}/enrollments`,
         enrollmentData
       );
 

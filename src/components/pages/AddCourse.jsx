@@ -40,7 +40,7 @@ const AddCourse = () => {
     };
 
     try {
-      const res = await axios.post("https://dev-stride-server.vercel.app/courses", courseData);
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}/courses`, courseData);
       if (res.data.insertedId) {
         toast.success("Course added successfully!");
         setFormData({

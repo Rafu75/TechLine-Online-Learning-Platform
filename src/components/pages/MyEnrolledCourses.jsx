@@ -14,7 +14,7 @@ const MyEnrolledCourses = () => {
   useEffect(() => {
     if (user?.email) {
       axios
-        .get(`http://localhost:5000/enrollments?email=${user.email}`)
+        .get(`${import.meta.env.VITE_API_URL}/enrollments?email=${user.email}`)
         .then((res) => setEnrolled(res.data))
         .catch((err) => console.error(err));
     }
@@ -27,7 +27,7 @@ const MyEnrolledCourses = () => {
       setRemoving(selectedCourse._id);
 
       const res = await axios.delete(
-        `http://localhost:5000/enrollments/${selectedCourse._id}`
+        `${import.meta.env.VITE_API_URL}/enrollments/${selectedCourse._id}`
       );
 
       if (res.data.success) {

@@ -18,7 +18,7 @@ const UpdateCourse = () => {
 
   // load exist course
   useEffect(() => {
-    axios.get(`https://dev-stride-server.vercel.app/courses/${id}`)
+    axios.get(`${import.meta.env.VITE_API_URL}/courses/${id}`)
       .then((res) => setCourse(res.data))
       .catch((err) => console.error(err));
   }, [id]);
@@ -32,7 +32,7 @@ const UpdateCourse = () => {
     delete updateCourse._id;
 
     try {
-      const res = await axios.patch(`https://dev-stride-server.vercel.app/courses/${id}`, updateCourse);
+      const res = await axios.patch(`${import.meta.env.VITE_API_URL}/courses/${id}`, updateCourse);
       if (res.data.modifiedCount > 0) {
         toast.success("Course updated successfully!");
         navigate("/myCourse");

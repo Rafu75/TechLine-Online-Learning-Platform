@@ -11,7 +11,7 @@ const MyCourse = () => {
   const fetchCourses = async () => {
     try {
       const res = await axios.get(
-        `https://dev-stride-server.vercel.app/courses?email=${user.email}`
+        `${import.meta.env.VITE_API_URL}/courses?email=${user.email}`
       );
       setCourses(res.data);
     } catch (err) {
@@ -27,7 +27,7 @@ const MyCourse = () => {
     if (!confirm("Are you sure you want to delete this course?")) return;
 
     try {
-      const res = await axios.delete(`https://dev-stride-server.vercel.app/courses/${id}`);
+      const res = await axios.delete(`${import.meta.env.VITE_API_URL}/courses/${id}`);
       if (res.data.deletedCount > 0) {
         toast.success("Course deleted!");
         fetchCourses();
