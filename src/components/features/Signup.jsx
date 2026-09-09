@@ -30,7 +30,7 @@ const Signup = () => {
         const passwordPattern = /^.{6,}$/;
         const casePattern = /^(?=.*[a-z])(?=.*[A-Z]).+$/;
         if (!passwordPattern.test(password)) {
-            // console.log('dont match ');
+            // console.log('don't match ');
             setError('Please give me at least 6 character or Longer.')
             return;
         }
