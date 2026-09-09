@@ -8,7 +8,10 @@ const app = express();
 
 app.use(
   cors({
-    origin: "http://localhost:5174",
+    origin: [
+      "http://localhost:5174",
+      "https://tech-line-online-learning-platform.vercel.app",
+    ],
     credentials: true,
   })
 );
